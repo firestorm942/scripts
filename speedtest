@@ -1,0 +1,11 @@
+#!/bin/bash
+cd /tmp || exit
+if [ -f tempr-cli ]
+then
+rm -rf tempr-cli
+else
+wget -O tempr-cli "https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py" &> /dev/null
+chmod +x tempr-cli
+./tempr-cli
+rm -rf tempr-cli
+fi
