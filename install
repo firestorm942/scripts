@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo cp speedtest /usr/bin/speedtest
+su cp speedtest ~/speedtest
