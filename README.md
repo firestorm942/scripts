@@ -7,5 +7,5 @@ cli speedtest
 check your connection on headless systems
 
 # mcinstall
-ubuntu/linux installer script
+ minecraft ubuntu/linux installer script
 client/server/java
