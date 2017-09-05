@@ -11,7 +11,7 @@
 
 # happy mining!
 
-# latest update 11/29/2016
+# latest update 09/05/2017
 
 
 echo ""
@@ -99,14 +99,14 @@ then
 		if [ -e /usr/lib/jvm/java-8-oracle/bin/java ]
 		then
 		echo "oracle-8-Java is already Installed!"
-		echo -ne "We need to make sure that it is the default Java installation"
-		dots
-		echo "Don't worry if you see lots of errors"
-		echo "this requires root access"
+		#echo -ne "We need to make sure that it is the default Java installation"
+		#dots
+		#echo "Don't worry if you see lots of errors"
+		#echo "this requires root access"
 		# setting the default java creates alot of unneeded text, therefore it is done
 		# in a new terminal window, because people dont' really need to see it
-		sudo xterm -e update-java-alternatives -s java-8-oracle
-		echo "Oracle Java set as Default."
+		#sudo xterm -e update-java-alternatives -s java-8-oracle
+		#echo "Oracle Java set as Default."
 		fi
 	fi
 echo ""
@@ -244,7 +244,7 @@ echo""
 function ServerInstall {
 echo -ne "Looking for Server File"
 dots
-if [ -e /home/"$(whoami)"/Minecraft_Server/bin/minecraft_server.1.11.jar ]
+if [ -e /home/"$(whoami)"/Minecraft_Server/bin/minecraft_server.1.12.1.jar ]
 then
 	echo -ne "Server Files already installed!"
 	dots
@@ -263,9 +263,9 @@ mkdir bin
 cd bin
 echo ""
 
-file="minecraft_server.1.11.jar"
+file="minecraft_server.1.12.1.jar"
 echo -ne "Downloading $file:"
-download "https://s3.amazonaws.com/Minecraft.Download/versions/1.11/$file"
+download "https://s3.amazonaws.com/Minecraft.Download/versions/1.12.1/$file"
 
 file="minecraft-icon.png"
 echo -ne "Downloading $file:"
@@ -286,7 +286,7 @@ fi
 touch mcserver
  echo "cd /home/$(whoami)/Minecraft_Server" >> mcserver
  echo "pwd" >> mcserver
- echo "java -Xmx2G -Xms1G -jar bin/minecraft_server.1.11.jar nogui" >> mcserver
+ echo "java -Xmx2G -Xms1G -jar bin/minecraft_server.1.12.1.jar nogui" >> mcserver
 echo -ne  "Copying to bin folder"
 dots
 echo "This may require root access:"
