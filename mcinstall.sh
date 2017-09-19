@@ -11,7 +11,7 @@
 
 # happy mining!
 
-# latest update 09/05/2017
+# latest update 09/19/2017
 
 
 echo ""
@@ -244,7 +244,7 @@ echo""
 function ServerInstall {
 echo -ne "Looking for Server File"
 dots
-if [ -e /home/"$(whoami)"/Minecraft_Server/bin/minecraft_server.1.12.1.jar ]
+if [ -e /home/"$(whoami)"/Minecraft_Server/bin/minecraft_server.1.12.2.jar ]
 then
 	echo -ne "Server Files already installed!"
 	dots
@@ -263,9 +263,9 @@ mkdir bin
 cd bin
 echo ""
 
-file="minecraft_server.1.12.1.jar"
+file="minecraft_server.1.12.2.jar"
 echo -ne "Downloading $file:"
-download "https://s3.amazonaws.com/Minecraft.Download/versions/1.12.1/$file"
+download "https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/$file"
 
 file="minecraft-icon.png"
 echo -ne "Downloading $file:"
@@ -286,7 +286,7 @@ fi
 touch mcserver
  echo "cd /home/$(whoami)/Minecraft_Server" >> mcserver
  echo "pwd" >> mcserver
- echo "java -Xmx2G -Xms1G -jar bin/minecraft_server.1.12.1.jar nogui" >> mcserver
+ echo "java -Xmx2G -Xms1G -jar bin/minecraft_server.1.12.2.jar nogui" >> mcserver
 echo -ne  "Copying to bin folder"
 dots
 echo "This may require root access:"
@@ -525,7 +525,7 @@ then
 echo "-------------------------------------------------"
 echo "if these troubleshooting options didn't fix your,"
 echo "problem, I'd be glad to help you out! "
-echo "Speed9425@gmail.com"
+echo "Speed9425@lostplay.net"
 echo "-------------------------------------------------"
 Main
 else
@@ -549,7 +549,7 @@ fi
 #          FORGE FUNCTION          #
 #----------------------------------#
 function Forge {
-file="forge-1.11-13.19.0.2168-installer.jar"
+file="forge-1.12.2-14.23.0.2486-installer.jar"
 cd /home/"$(whoami)"/Downloads
 echo "Checking for forge installer"
  if [ -e /home/"$(whoami)"/Downloads/$file ]
@@ -560,7 +560,7 @@ echo "Checking for forge installer"
  else
    echo "You dont have forge"
    echo -ne "Downloading forge:"
-   download "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.11-13.19.0.2168/$file"
+   download "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.0.2486/$file"
    chmod 755 "$file"
    java -jar ./$file &> /dev/null
 fi
@@ -917,7 +917,7 @@ fi
 touch wfproxy
   echo "cd /home/$(whoami)/Waterfall_Proxy" >> wfproxy
   echo "pwd" >> wfproxy
-  echo "java -Xmx1G -Xms512M -jar bin/Waterfall.jar" >> wfproxy
+  echo "java -Xmx512M -Xms256M -jar bin/Waterfall.jar" >> wfproxy
 echo -ne  "Copying to bin folder"
 dots
 echo "This may require root access:"
@@ -1061,7 +1061,7 @@ fi
 touch bcproxy
   echo "cd /home/$(whoami)/BungeeCord_Proxy" >> bcproxy
   echo "pwd" >> bcproxy
-  echo "java -Xmx1G -Xms512M -jar bin/BungeeCord.jar" >> bcproxy
+  echo "java -Xmx512M -Xms256M -jar bin/BungeeCord.jar" >> bcproxy
 echo -ne  "Copying to bin folder"
 dots
 echo "This may require root access:"
