@@ -8,22 +8,20 @@ else
     echo "Install successful"
 fi
 function Main {
-if [ -e /usr/bin/speedtest ]
+if [ ! -e /usr/bin/speedtest ]
 then
-read -p "<Do you wish to remove speedtest?> : y/N" CONDITION;
-if [ "$CONDITION" == "y" ];
-then
-    echo "Starting PaperSpigot..."
-    sleep 3
-    sudo rm -rf /usr/bin/speedtest
-    echo "Speedtest removed successfully!"
-else
-    read -p "<Do you wish to install speedtest?> : y/N" CONDITION;
-    if [ "$CONDITION" == "y" ]; then
+    echo "Installing speedtest. Press [Enter] to continue/n or [ctrl+c] to cancel."
     wget -qc https://raw.githubusercontent.com/firestorm942/scripts/master/speedtest
     sudo cp speedtest /usr/bin/speedtest
     echo "Speedtest installed successfully!"
-fi
+    else
+    read -p "<Do you wish to remove speedtest?> : y/N" CONDITION;
+    if [ "$CONDITION" == "y" ];
+    then
+    sudo rm -rf /usr/bin/speedtest
+    echo "Speedtest removed successfully!"
+    else
+    exit
 fi
 fi
 }
