@@ -1,8 +1,7 @@
 #!/bin/bash
 cd /tmp || exit
-echo "checking if python is installed"
 if command -v python > /dev/null 2>&1; then
-    echo "python installed, resuming"
+    echo ""
 else
     echo "Installing python"
     sudo apt install -y -qq python
@@ -15,6 +14,7 @@ then
     read -rsp $"Press Enter to Continue...[Ctrl+C] To Cancel"
     wget -qc https://raw.githubusercontent.com/firestorm942/scripts/master/speedtest
     sudo mv speedtest /usr/bin/speedtest
+    echo ""
     echo "Speedtest installed successfully!"
     else
     read -p "<Do you wish to remove speedtest?> : y/N" CONDITION;
