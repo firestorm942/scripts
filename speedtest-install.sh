@@ -14,6 +14,7 @@ then
     read -rsp $"Press Enter to Continue...[Ctrl+C] To Cancel"
     wget -qc https://raw.githubusercontent.com/firestorm942/scripts/master/speedtest
     sudo mv speedtest /usr/bin/speedtest
+    sudo chmod +x /usr/bin/speedtest
     echo ""
     echo "Speedtest installed successfully!"
     else
