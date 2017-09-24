@@ -32,7 +32,7 @@ counter=1
 #----------------------------------#
 # this function simply prints three dots. It waits .1 seconds between each dot
 function dots {
-while [ $counter -le 3 ]
+while [ ${counter} -le 3 ]
 do
 echo -ne "."
 sleep .1
@@ -552,17 +552,17 @@ function Forge {
 file="forge-1.12.2-14.23.0.2486-installer.jar"
 cd /home/"$(whoami)"/Downloads
 echo "Checking for forge installer"
- if [ -e /home/"$(whoami)"/Downloads/$file ]
+ if [ -e /home/"$(whoami)"/Downloads/${file} ]
  then
    echo "Launching forge installer"
    chmod 755 "$file"
-   java -jar ./$file &> /dev/null
+   java -jar ./${file} &> /dev/null
  else
    echo "You dont have forge"
    echo -ne "Downloading forge:"
    download "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.0.2486/$file"
    chmod 755 "$file"
-   java -jar ./$file &> /dev/null
+   java -jar ./${file} &> /dev/null
 fi
 rm -rf forge-*-installer.*
 }
@@ -575,7 +575,7 @@ echo ""
 echo "------------------------------------------------------"
 echo "What would you like to do? (enter number of choice) "; echo "";
 INPUT=0
-while [ $INPUT != 1 ] && [ $INPUT != 2 ] && [ $INPUT != 3 ]
+while [ ${INPUT} != 1 ] && [ ${INPUT} != 2 ] && [ ${INPUT} != 3 ]
 do
 echo "1. Install Minecraft"
 echo "2. Uninstall Minecraft"
@@ -607,7 +607,7 @@ then
     echo "------------------------------------------------------"
     echo "What would you like to do? (enter number of choice) "; echo "";
     INPUT=0
-    while [ $INPUT != 1 ] && [ $INPUT != 2 ] && [ $INPUT != 3 ]
+    while [ ${INPUT} != 1 ] && [ ${INPUT} != 2 ] && [ ${INPUT} != 3 ]
     do
     echo "1. Install Minecraft Server"
     echo "2. Uninstall Minecraft Server"
@@ -649,7 +649,7 @@ else
       echo "------------------------------------------------------"
       echo "What would you like to do? (enter number of choice) "; echo "";
       INPUT=0
-      while [ $INPUT != 1 ] && [ $INPUT != 2 ] && [ $INPUT != 3 ]
+      while [ ${INPUT} != 1 ] && [ ${INPUT} != 2 ] && [ ${INPUT} != 3 ]
       do
       echo "1. Install Waterfall Proxy"
       echo "2. Uninstall Waterfall Proxy"
