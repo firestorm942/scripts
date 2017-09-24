@@ -11,8 +11,8 @@ fi
 function Main {
 if [ ! -e /usr/bin/speedtest ]
 then
-    echo "Installing speedtest. Press [Enter] to continue/n or [ctrl+c] to cancel."
-    read -rsp $"Press Enter to Continue...[Ctrl+C] To Cancel\n"
+    echo "Installing speedtest."
+    read -rsp $"Press Enter to Continue...[Ctrl+C] To Cancel"
     wget -qc https://raw.githubusercontent.com/firestorm942/scripts/master/speedtest
     sudo mv speedtest /usr/bin/speedtest
     echo "Speedtest installed successfully!"
