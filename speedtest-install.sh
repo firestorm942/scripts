@@ -1,10 +1,15 @@
 #!/bin/sh
 echo "checking if python is installed"
 if command -v python > /dev/null 2>&1; then
-    echo "python installed resuming"
+    echo "python installed, resuming"
+    Main
 else
     echo "Installing python"
     sudo apt install -y -qq python
+    echo "Install successful"
+    Main
+fi
+function Main {
 if [ -e /usr/bin/speedtest ]
 then
 read -p "<Do you wish to remove speedtest?> : y/N" CONDITION;
@@ -23,4 +28,4 @@ else
 fi
 fi
 fi
-fi
+}
