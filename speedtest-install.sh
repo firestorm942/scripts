@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /tmp || exit
 echo "checking if python is installed"
 if command -v python > /dev/null 2>&1; then
     echo "python installed, resuming"
