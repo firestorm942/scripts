@@ -12,6 +12,7 @@ function Main {
 if [ ! -e /usr/bin/speedtest ]
 then
     echo "Installing speedtest. Press [Enter] to continue/n or [ctrl+c] to cancel."
+    pause
     wget -qc https://raw.githubusercontent.com/firestorm942/scripts/master/speedtest
     sudo mv speedtest /usr/bin/speedtest
     echo "Speedtest installed successfully!"
