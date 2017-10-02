@@ -170,7 +170,8 @@ else
 file="TeamSpeak3-Client-linux_amd64-$CLIVER.run"
 echo -n "Downloading $file:"
 download "http://dl.4players.de/ts/releases/$CLIVER/$file"
-sudo ./${file}
+chmod +x ${file}
+./${file}
 mv TeamSpeak3-Client-linux_amd64 .ts3client
 fi
 echo""
