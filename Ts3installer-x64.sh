@@ -311,3 +311,4 @@ echo "TeamSpeak3 has been uninstalled :("
 
 }
 ## END UNINSTALL
+Main
