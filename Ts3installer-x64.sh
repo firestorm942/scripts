@@ -156,6 +156,8 @@ fi
 
 
 #--------------------------------------------
+cd /home/"$(whoami)"
+#--------------------------------------------
 # the .jar file is simply downloaded to the .ts3client folder from ts3client.net
 # it first checks to see if the user already has it, if so, it won't be downloaded
 echo -ne downloading TeamSpeak3 Client
