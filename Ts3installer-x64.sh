@@ -150,7 +150,6 @@ else
 echo -ne "creating /home/$(whoami)/.ts3client"
 dots
 cd /home/"$(whoami)"
-mkdir .ts3client
 fi
 
 
@@ -173,6 +172,7 @@ download "http://dl.4players.de/ts/releases/$CLIVER/$file"
 chmod +x ${file}
 ./${file}
 mv TeamSpeak3-Client-linux_amd64 .ts3client
+cd /home/"$(whoami)"/.ts3client
 fi
 echo""
 echo -ne "downloading icon"
