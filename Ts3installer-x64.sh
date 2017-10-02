@@ -3,11 +3,8 @@
 
 # feel free to change, update, improve, and release this script
 
-# This script, in no way, is directly distributing any protected ts3client files
-# all files are open. Don't worry, you won't be
 # breaking the "one big rule"
 
-# happy mining!
 
 # latest update 10/2/2017
 CLIVER=3.1.6
@@ -18,7 +15,7 @@ echo "@  firestorm942s Ts3 Client Installer       @"
 echo "@                                           @"
 echo "@                                           @"
 echo "@   Please feel free to improve             @"
-echo "@     this script howeCLIVER you desire.       @"
+echo "@     this script however you desire.       @"
 echo "@                                           @"
 echo "@         feedback is awesome               @"
 echo "@-------------------------------------------@"
@@ -260,7 +257,6 @@ echo ""
 echo "SUCCESS!"
 echo ""
 echo -e "ts3client has been successfully Downloaded and Installed \nCheck your desktop and Applications menu for launchers! \nYou can also run it from terminal with a 'ts3client' command! \ncontact: Speed9425@gmail.com"
-echo "Happy Mining!"
 
 echo""
 
