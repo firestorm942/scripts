@@ -215,10 +215,7 @@ if [ -e /home/"$(whoami)"/.ts3client/install_files ]
 then
 echo -ne previous version detected, updating
 dots
-rm -rf install_files
 fi
-mkdir install_files
-cd install_files
 
 touch ts3client-installer.desktop
 echo "[Desktop Entry]" >> ts3client-installer.desktop
@@ -299,7 +296,6 @@ echo "Removing Application Launcher"
 xdg-desktop-menu uninstall ts3client-menu.directory ts3client-installer.desktop
 echo "Removing Desktop Shortcut"
 rm /home/"$(whoami)"/Desktop/ts3client-installer.desktop
-rm -rf /home/"$(whoami)"/.ts3client/install_files
 echo ""
 echo -ne "Removing Binary Launcher"
 dots
