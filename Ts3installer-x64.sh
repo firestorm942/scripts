@@ -196,7 +196,7 @@ dots
 if [ ! -e /usr/local/bin/ts3client ]
 then
 touch ts3client
-echo java -jar /home/"$(whoami)"/.ts3client/ts3client_runscript.sh >> ts3client
+echo /home/"$(whoami)"/.ts3client/ts3client_runscript.sh >> ts3client
 echo -ne saving to usr/local/bin
 dots
 echo this requires root access:
