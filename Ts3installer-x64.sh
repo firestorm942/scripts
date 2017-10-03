@@ -218,37 +218,37 @@ echo -ne previous version detected, updating
 dots
 fi
 
-touch TeamSpeak-installer.desktop
-echo "[Desktop Entry]" >> TeamSpeak-installer.desktop
-echo "Type=Application" >> TeamSpeak-installer.desktop
-echo "Encoding=UTF-8" >> TeamSpeak-installer.desktop
-echo "Name=ts3client" >> TeamSpeak-installer.desktop
-echo "Comment=Ts3client Client" >> TeamSpeak-installer.desktop
-echo "Exec=/home/$(whoami)/.ts3client/ts3client_runscript.sh" >> TeamSpeak-installer.desktop
-echo "Icon=/home/$(whoami)/.ts3client/icon.png"  >> TeamSpeak-installer.desktop
-echo "Categories=Games" >> TeamSpeak-installer.desktop
-echo "Terminal=false" >> TeamSpeak-installer.desktop
+touch ts3client-installer.desktop
+echo "[Desktop Entry]" >> ts3client-installer.desktop
+echo "Type=Application" >> ts3client-installer.desktop
+echo "Encoding=UTF-8" >> ts3client-installer.desktop
+echo "Name=TeamSpeak" >> ts3client-installer.desktop
+echo "Comment=Ts3client Client" >> ts3client-installer.desktop
+echo "Exec=/home/$(whoami)/.ts3client/ts3client_runscript.sh" >> ts3client-installer.desktop
+echo "Icon=/home/$(whoami)/.ts3client/icon.png"  >> ts3client-installer.desktop
+echo "Categories=Games" >> ts3client-installer.desktop
+echo "Terminal=false" >> ts3client-installer.desktop
 #----------------------------------------------------
 echo -ne granting the shortcut excecution permissions
 dots
 echo this requires root access
-cp TeamSpeak-installer.desktop /home/"$(whoami)"/Desktop
-sudo chmod +x /home/"$(whoami)"/Desktop/TeamSpeak-installer.desktop
+cp ts3client-installer.desktop /home/"$(whoami)"/Desktop
+sudo chmod +x /home/"$(whoami)"/Desktop/ts3client-installer.desktop
 echo "done"
 echo ""
 #---------------------------------------------
 echo -ne writing menu item
 dots
-touch TeamSpeak-menu.directory
- echo "[Desktop Entry]" >> TeamSpeak-menu.directory
- echo "Value=1.0" >> TeamSpeak-menu.directory
- echo "Type=Directory" >> TeamSpeak-menu.directory
- echo "Encoding=UTF-8" >> TeamSpeak-menu.directory
+touch ts3client-menu.directory
+ echo "[Desktop Entry]" >> ts3client-menu.directory
+ echo "Value=1.0" >> ts3client-menu.directory
+ echo "Type=Directory" >> ts3client-menu.directory
+ echo "Encoding=UTF-8" >> ts3client-menu.directory
 echo "done"
 echo ""
 echo -ne installing to Applications menu
 dots
-xdg-desktop-menu install TeamSpeak-menu.directory TeamSpeak-installer.desktop
+xdg-desktop-menu install ts3client-menu.directory ts3client-installer.desktop
 xdg-desktop-menu forceupdate
 echo installed
 #--------------------------------------------
@@ -294,9 +294,9 @@ rm icon.png
 cd install_files
 echo "Removing Application Launcher"
 
-xdg-desktop-menu uninstall TeamSpeak-menu.directory TeamSpeak-installer.desktop
+xdg-desktop-menu uninstall ts3client-menu.directory ts3client-installer.desktop
 echo "Removing Desktop Shortcut"
-rm /home/"$(whoami)"/Desktop/TeamSpeak-installer.desktop
+rm /home/"$(whoami)"/Desktop/ts3client-installer.desktop
 echo ""
 echo -ne "Removing Binary Launcher"
 dots
