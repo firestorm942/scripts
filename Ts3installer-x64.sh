@@ -171,6 +171,7 @@ echo -n "Downloading $file:"
 download "http://dl.4players.de/ts/releases/$CLIVER/$file"
 chmod +x ${file}
 ./${file}
+rm -rf ${file}
 mv ~/TeamSpeak3-Client-linux_amd64 ~/.ts3client
 cd /home/"$(whoami)"/.ts3client
 fi
