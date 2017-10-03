@@ -291,7 +291,6 @@ echo -ne "Deleting files and folders"
 dots
 rm ts3client
 rm icon.png
-cd install_files
 echo "Removing Application Launcher"
 
 xdg-desktop-menu uninstall ts3client-menu.directory ts3client-installer.desktop
