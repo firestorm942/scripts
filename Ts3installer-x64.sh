@@ -226,7 +226,7 @@ echo "Name=ts3client" >> TeamSpeak-installer.desktop
 echo "Comment=Ts3client Client" >> TeamSpeak-installer.desktop
 echo "Exec=/home/$(whoami)/.ts3client/ts3client_runscript.sh" >> TeamSpeak-installer.desktop
 echo "Icon=/home/$(whoami)/.ts3client/icon.png"  >> TeamSpeak-installer.desktop
-echo "Categories=Comms" >> TeamSpeak-installer.desktop
+echo "Categories=Games" >> TeamSpeak-installer.desktop
 echo "Terminal=false" >> TeamSpeak-installer.desktop
 #----------------------------------------------------
 echo -ne granting the shortcut excecution permissions
