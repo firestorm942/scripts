@@ -173,8 +173,8 @@ chmod +x ${file}
 ./${file}
 rm -rf ${file}
 mv ~/TeamSpeak3-Client-linux_amd64 ~/.ts3client
-cd /home/"$(whoami)"/.ts3client
 fi
+cd /home/"$(whoami)"/.ts3client
 echo""
 echo -ne "downloading icon"
 dots
@@ -212,11 +212,6 @@ echo ""
 echo -ne writing desktop shortcut
 dots
 cd /home/"$(whoami)"/.ts3client/
-if [ -e /home/"$(whoami)"/.ts3client/install_files ]
-then
-echo -ne previous version detected, updating
-dots
-fi
 
 touch ts3client-installer.desktop
 echo "[Desktop Entry]" >> ts3client-installer.desktop
