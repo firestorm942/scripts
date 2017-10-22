@@ -146,14 +146,7 @@ then
 
 	fi
 	echo ""
-else
-echo -ne "creating /home/$(whoami)/.ts3client"
-dots
-cd /home/"$(whoami)"
 fi
-
-
-
 
 #--------------------------------------------
 cd /home/"$(whoami)"
