@@ -92,21 +92,21 @@ cd /home/"$(whoami)"/.minecraft
 # is default, just in case openjdk is already installed
 echo -ne "looking for oracle java."
 dots
-if [ -e /usr/lib/jvm/java-8-oracle ]
+if [ -e /usr/lib/jvm/java-9-oracle ]
 then
-	if [ -e /usr/lib/jvm/java-8-oracle/bin ]
+	if [ -e /usr/lib/jvm/java-9-oracle/bin ]
 	then
-		if [ -e /usr/lib/jvm/java-8-oracle/bin/java ]
+		if [ -e /usr/lib/jvm/java-9-oracle/bin/java ]
 		then
 		echo "oracle-8-Java is already Installed!"
-		#echo -ne "We need to make sure that it is the default Java installation"
+		echo -ne "We need to make sure that it is the default Java installation"
 		#dots
 		#echo "Don't worry if you see lots of errors"
-		#echo "this requires root access"
+		echo "this requires root access"
 		# setting the default java creates alot of unneeded text, therefore it is done
 		# in a new terminal window, because people dont' really need to see it
-		#sudo xterm -e update-java-alternatives -s java-8-oracle
-		#echo "Oracle Java set as Default."
+		sudo update-java-alternatives -s java-8-oracle
+		echo "Oracle Java set as Default."
 		fi
 	fi
 echo ""
@@ -118,11 +118,11 @@ echo "prepare for lots of text!"
 echo "Adding java repo..."
 sudo add-apt-repository ppa:webupd8team/java
 echo "Updating apt-get cache."
-sudo xterm -e apt-get update
+sudo apt-get update
 echo "Installing java."
-sudo apt-get install oracle-java8-installer
-echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
-sudo xterm -e update-java-alternatives -s java-8-oracle
+sudo apt-get install oracle-java9-installer
+echo oracle-java9-installer shared/accepted-oracle-license-v1-1 select yes | sudo /usr/bin/debconf-set-selections
+sudo update-java-alternatives -s java-9-oracle
 echo ""
 echo ""
 echo ""
@@ -470,13 +470,12 @@ TINPUT=0
 read TINPUT
 if [ "$TINPUT" -eq 1 ]
 then
-	echo "Attempting to install oracle java 8."
+	echo "Attempting to install oracle java 9."
         echo "Adding apt repo(requires root)."
         sudo add-apt-repository ppa:webupd8team/java
         echo "installing...(requires root)"
         sudo apt-get update
-        sudo apt-get install oracle-java8-installer
-        echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+        sudo apt-get install oracle-java9-installer
         echo "installed, thank you :)";
 	TroubleShoot
 else
@@ -508,7 +507,7 @@ then
 	dots
 	echo "Don't worry if you see lots of errors"
 
-	sudo xterm -e update-java-alternatives -s java-8-oracle
+	sudo xterm -e update-java-alternatives -s java-9-oracle
 	echo ""; echo ""; echo; echo "Finished!"; echo "";
 else
 if [ "$TINPUT" -eq 5 ]
