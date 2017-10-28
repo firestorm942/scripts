@@ -220,24 +220,14 @@ echo "Terminal=false" >> ts3client-installer.desktop
 echo -ne granting the shortcut excecution permissions
 dots
 echo this requires root access
+
+echo -ne installing to Desktop
+dots
 cp ts3client-installer.desktop /home/"$(whoami)"/Desktop
 sudo chmod +x /home/"$(whoami)"/Desktop/ts3client-installer.desktop
 echo "done"
 echo ""
-#---------------------------------------------
-echo -ne writing menu item
-dots
-touch ts3client-menu.directory
- echo "[Desktop Entry]" >> ts3client-menu.directory
- echo "Value=1.0" >> ts3client-menu.directory
- echo "Type=Directory" >> ts3client-menu.directory
- echo "Encoding=UTF-8" >> ts3client-menu.directory
-echo "done"
-echo ""
-echo -ne installing to Applications menu
-dots
-xdg-desktop-menu install ts3client-menu.directory ts3client-installer.desktop
-xdg-desktop-menu forceupdate
+
 echo installed
 #--------------------------------------------
 echo ""
@@ -281,7 +271,7 @@ rm ts3client
 rm icon.png
 echo "Removing Application Launcher"
 
-xdg-desktop-menu uninstall ts3client-menu.directory ts3client-installer.desktop
+xdg-desktop-menu uninstall ts3client-installer.desktop
 echo "Removing Desktop Shortcut"
 rm /home/"$(whoami)"/Desktop/ts3client-installer.desktop
 echo ""
