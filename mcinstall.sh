@@ -92,11 +92,11 @@ cd /home/"$(whoami)"/.minecraft
 # is default, just in case openjdk is already installed
 echo -ne "looking for oracle java."
 dots
-if [ -e /usr/lib/jvm/java-9-oracle ]
+if [ -e /usr/lib/jvm/java-8-oracle ]
 then
-	if [ -e /usr/lib/jvm/java-9-oracle/bin ]
+	if [ -e /usr/lib/jvm/java-8-oracle/bin ]
 	then
-		if [ -e /usr/lib/jvm/java-9-oracle/bin/java ]
+		if [ -e /usr/lib/jvm/java-8-oracle/bin/java ]
 		then
 		echo "oracle-8-Java is already Installed!"
 		echo -ne "We need to make sure that it is the default Java installation"
@@ -120,9 +120,9 @@ sudo add-apt-repository ppa:webupd8team/java
 echo "Updating apt-get cache."
 sudo apt-get update
 echo "Installing java."
-sudo apt-get install oracle-java9-installer
-echo oracle-java9-installer shared/accepted-oracle-license-v1-1 select yes | sudo /usr/bin/debconf-set-selections
-sudo update-java-alternatives -s java-9-oracle
+sudo apt-get install oracle-java8-installer
+echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select yes | sudo /usr/bin/debconf-set-selections
+sudo update-java-alternatives -s java-8-oracle
 echo ""
 echo ""
 echo ""
@@ -211,20 +211,8 @@ cp minecraft-installer.desktop /home/"$(whoami)"/Desktop
 sudo chmod +x /home/"$(whoami)"/Desktop/minecraft-installer.desktop
 echo "done"
 echo ""
-#---------------------------------------------
-echo -ne writing menu item
+echo -ne installing to Desktop
 dots
-touch minecraft-menu.directory
- echo "[Desktop Entry]" >> minecraft-menu.directory
- echo "Value=1.0" >> minecraft-menu.directory
- echo "Type=Directory" >> minecraft-menu.directory
- echo "Encoding=UTF-8" >> minecraft-menu.directory
-echo "done"
-echo ""
-echo -ne installing to Applications menu
-dots
-xdg-desktop-menu install minecraft-menu.directory minecraft-installer.desktop
-xdg-desktop-menu forceupdate
 echo installed
 #--------------------------------------------
 echo ""
@@ -301,10 +289,9 @@ dots
 mkdir install_files
 cd install_files
 
-if [ -e minecraft-server_installer.desktop ] || [ -e minecraft-menu.directory ]
+if [ -e minecraft-server_installer.desktop ]
 then
     rm minecraft-server_installer.desktop
-    rm minecraft-menu.directory
 fi
 touch minecraft-server_installer.desktop
   echo "[Desktop Entry]" >> minecraft-server_installer.desktop
@@ -322,21 +309,6 @@ dots
 echo this requires root access
 cp minecraft-server_installer.desktop /home/"$(whoami)"/Desktop
 sudo chmod +x /home/"$(whoami)"/Desktop/minecraft-server_installer.desktop
-echo "done"
-echo ""
-
-echo -ne "Writing menu item"
-dots
-touch minecraft-menu.directory
-  echo "[Desktop Entry]" >> minecraft-menu.directory
-  echo "Value=1.0" >> minecraft-menu.directory
-  echo "Type=Directory" >> minecraft-menu.directory
-  echo "Encoding=UTF-8" >> minecraft-menu.directory
-
-echo -ne "Installing server launchers"
-dots
-xdg-desktop-menu install minecraft-menu.directory minecraft-server_installer.desktop
-xdg-desktop-menu forceupdate
 echo "done"
 echo ""
 echo  -e "The Minecraft server has been installed! \nrun it from the launchers, or by typing 'mcserver' into terminal"
@@ -357,7 +329,6 @@ fi
 cd /home/"$(whoami)"/Minecraft_Server/bin/install_files
 echo -ne "Removing Launchers"
 dots
-xdg-desktop-menu uninstall minecraft-menu.directory minecraft-server_installer.desktop
 echo "done"
 echo ""
 echo -ne "Removing Desktop Icon"
@@ -431,9 +402,6 @@ rm minecraft
 rm -rf resources
 rm icon.png
 cd install_files
-echo "Removing Application Launcher"
-
-xdg-desktop-menu uninstall minecraft-menu.directory minecraft-installer.desktop
 echo "Removing Desktop Shortcut"
 rm /home/"$(whoami)"/Desktop/minecraft-installer.desktop
 rm -rf /home/"$(whoami)"/.minecraft/install_files
@@ -475,7 +443,7 @@ then
         sudo add-apt-repository ppa:webupd8team/java
         echo "installing...(requires root)"
         sudo apt-get update
-        sudo apt-get install oracle-java9-installer
+        sudo apt-get install oracle-java8-installer
         echo "installed, thank you :)";
 	TroubleShoot
 else
@@ -507,7 +475,7 @@ then
 	dots
 	echo "Don't worry if you see lots of errors"
 
-	sudo xterm -e update-java-alternatives -s java-9-oracle
+	sudo xterm -e update-java-alternatives -s java-8-oracle
 	echo ""; echo ""; echo; echo "Finished!"; echo "";
 else
 if [ "$TINPUT" -eq 5 ]
