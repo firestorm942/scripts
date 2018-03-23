@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Server address to connect to.
+SSH=fstm942.org@fstm942.org
+
+# Location of pid file. (Only used if daemon is true)
+PIDFILE=/tmp/sshuttle.pid
+
+# Arguments
+ARGS=-r
+
+# Subnet to use (i.e. 0.0.0.0/0)
+SUBNET=192.168.1.0/24
+
+# Check if sshuttle is installed
+if [ ! -f /usr/bin/sshuttle ]
+then
+ echo 'Would you like to install sshuttle?'
+ sudo apt update
+ sudo apt install sshuttle
+fi
+# If tunnel is down restart it
+if [ ! -f ''$PIDFILE'' ]
+  then
+    sshuttle --dns --daemon --pidfile=$PIDFILE $ARGS $SSH $SUBNET
+# If tunnel is up exit normally
+  else
+    exit 0
+fi
+# done
