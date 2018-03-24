@@ -6,8 +6,8 @@
 # breaking the "one big rule"
 
 
-# latest update 10/2/2017
-CLIVER=3.1.6
+# latest update 3/24/2018
+CLIVER=3.1.8
 
 echo ""
 echo "@-------------------------------------------@"
