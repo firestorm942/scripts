@@ -11,7 +11,7 @@
 
 # happy mining!
 
-# latest update 09/19/2017
+# latest update 03/26/2018
 
 
 echo ""
@@ -121,8 +121,6 @@ echo "Updating apt-get cache."
 sudo apt-get update
 echo "Installing java."
 sudo apt-get install oracle-java8-installer
-echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select yes | sudo /usr/bin/debconf-set-selections
-sudo update-java-alternatives -s java-8-oracle
 echo ""
 echo ""
 echo ""
@@ -492,7 +490,7 @@ then
 echo "-------------------------------------------------"
 echo "if these troubleshooting options didn't fix your,"
 echo "problem, I'd be glad to help you out! "
-echo "Speed9425@lostplay.net"
+echo "Speed9425@gmail.com"
 echo "-------------------------------------------------"
 Main
 else
@@ -515,8 +513,9 @@ fi
 #----------------------------------#
 #          FORGE FUNCTION          #
 #----------------------------------#
+# http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.2.2611/forge-1.12.2-14.23.2.2611-installer.jar
 function Forge {
-file="forge-1.12.2-14.23.0.2486-installer.jar"
+file="forge-1.12.2-14.23.2.2611-installer.jar"
 cd /home/"$(whoami)"/Downloads
 echo "Checking for forge installer"
  if [ -e /home/"$(whoami)"/Downloads/${file} ]
@@ -527,7 +526,7 @@ echo "Checking for forge installer"
  else
    echo "You dont have forge"
    echo -ne "Downloading forge:"
-   download "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.0.2486/$file"
+   download "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.2.2611/$file"
    chmod 755 "$file"
    java -jar ./${file} &> /dev/null
 fi
