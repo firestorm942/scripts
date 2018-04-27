@@ -11,7 +11,7 @@
 
 # happy mining!
 
-# latest update 03/26/2018
+# latest update 04/27/2018
 
 
 echo ""
@@ -515,7 +515,7 @@ fi
 #----------------------------------#
 # http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.2.2611/forge-1.12.2-14.23.2.2611-installer.jar
 function Forge {
-file="forge-1.12.2-14.23.2.2611-installer.jar"
+file="forge-1.12.2-14.23.3.2655-installer.jar"
 cd /home/"$(whoami)"/Downloads
 echo "Checking for forge installer"
  if [ -e /home/"$(whoami)"/Downloads/${file} ]
@@ -526,7 +526,7 @@ echo "Checking for forge installer"
  else
    echo "You dont have forge"
    echo -ne "Downloading forge:"
-   download "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.2.2611/$file"
+   download "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.3.2655/$file"
    chmod 755 "$file"
    java -jar ./${file} &> /dev/null
 fi
