@@ -3,8 +3,8 @@
 
 # This script should be located in the craftbukkit folder
 
-# Make sure you change this to the name of your world folder! 
-# Add additional worlds by separating them with a space. 
+# Make sure you change this to the name of your world folder!
+# Add additional worlds by separating them with a space.
 
 declare -a worlds=(world world_nether)
 backupdir=backups/
@@ -15,7 +15,7 @@ ddateformat=$(date '+%Y-%m-%d')D${ext}
 numworlds=${#worlds[@]}
 
     echo "Starting multiworld backup..."
- 
+
     if [ -d ${backupdir} ] ; then
         sleep 0
     else
@@ -30,8 +30,8 @@ numworlds=${#worlds[@]}
     echo "Updated daily backup."
     find ${backupdir}/ -name *H${ext} -mmin +1440 -exec rm {} \;
     find ${backupdir}/ -name *D${ext} -mtime +14 -exec rm {} \;
-    echo "Removed old backups." 
- 
+    echo "Removed old backups."
+
     echo "Backup complete."
 
 exit 0
