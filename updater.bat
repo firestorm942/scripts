@@ -14,7 +14,7 @@ move %~dp0\paperclip.jar %~dp0\cache\update\
 rename %~dp0\cache\update\paperclip.jar paperclip.jar.old
 if not exist %~dp0\tools\wget.exe (
     echo downloading wget
-    powershell -Command "Invoke-WebRequest https://eternallybored.org/misc/wget/current/wget64.exe -OutFile wget.exe"
+    powershell -Command "Invoke-WebRequest https://eternallybored.org/misc/wget/1.19.4/64/wget.exe -OutFile wget.exe"
     move wget.exe %~dp0\tools
 )
 echo Downloading PaperSpigot
