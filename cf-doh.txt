@@ -1,0 +1,26 @@
+useradd -s /usr/sbin/nologin -r -M cloudflared
+
+touch /etc/default/cloudflared
+
+echo "CLOUDFLARED_OPTS=--port 5053 --upstream https://1.1.1.1/dns-query --upstream https://1.0.0.1/dns-query" | sudo tee /etc/default/cloudflared
+
+chown cloudflared:cloudflared /etc/default/cloudflared
+chown cloudflared:cloudflared /usr/local/bin/cloudflared
+
+touch /etc/systemd/system/cloudflared.service
+
+[Unit]
+Description=cloudflared DNS over HTTPS proxy
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+User=cloudflared
+EnvironmentFile=/etc/default/cloudflared
+ExecStart=/usr/local/bin/cloudflared proxy-dns $CLOUDFLARED_OPTS
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
